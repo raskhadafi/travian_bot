@@ -21,13 +21,13 @@ class TravianBot
         login_button.submit
 
         # Check if building something
-        #begin
+        begin
           building_pipe = driver.find_element(:id, 'building_contract')
           building_time = driver.find_element(:class, 'buildingTime').text
           puts wait_till(building_time)
-        #rescue
-          #puts 'Nothing to build'
-        #end
+        rescue Selenium::WebDriver::Error::NoSuchElementError
+          puts 'Nothing to build'
+        end
 
         driver.quit
       
