@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     "lib/travian_bot/application.rb",
     "lib/travian_bot/tools.rb",
     "test/helper.rb",
-    "test/test_travian_bot.rb"
+    "test/test_travian_bot.rb",
+    "travian_bot.gemspec"
   ]
   s.homepage = "http://github.com/raskhadafi/travian_bot"
   s.licenses = ["MIT"]
