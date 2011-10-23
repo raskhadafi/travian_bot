@@ -1,6 +1,16 @@
 = travian_bot
 
-Description goes here.
+== Installation
+
+=== Config file
+
+Create in your home directory the file .travian_bot with following structure:
+
+travian_bot:
+  url: <here the url of the server>
+  usr: <here your user name>
+  pwd: <here your password>
+
 
 == Contributing to travian_bot
  
