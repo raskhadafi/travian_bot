@@ -19,6 +19,10 @@ class TravianBot
         puts text
         puts ' '
       end
+      
+      def new_line
+        puts ' '
+      end
     end
   end
 end
