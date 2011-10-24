@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "travian_bot"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roman Simecek"]
-  s.date = "2011-10-23"
+  s.date = "2011-10-24"
   s.description = "A little bot for travian."
   s.email = "roman.simecek@cyt.ch"
   s.executables = ["travianbot"]
@@ -28,7 +28,6 @@ Gem::Specification.new do |s|
     "bin/travianbot",
     "lib/travian_bot.rb",
     "lib/travian_bot/application.rb",
-    "lib/travian_bot/tools.rb",
     "test/helper.rb",
     "test/test_travian_bot.rb",
     "travian_bot.gemspec"
