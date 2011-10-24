@@ -1,6 +1,4 @@
 require 'selenium-webdriver'
-require 'chronic'
-
 Dir.glob(File.join(File.dirname(__FILE__), '/application/*.rb')).sort.each { |lib| load lib }
 
 
@@ -26,7 +24,6 @@ class TravianBot
         return 1
       end
       
-      private
       def current_avaible_buildings
         h2 'Avaible buildings'
         buildings = avaible_buildings(@game)
@@ -63,13 +60,6 @@ class TravianBot
           end
           new_line
         end
-      end
-      
-      # Get the ending time of a string
-      def wait_till(input)
-        time = input.to_s.match(/(\d*):(\d*)$/)
-
-        Chronic.parse("today #{time[0]}:#{time[1]}")      
       end
     end
   end
