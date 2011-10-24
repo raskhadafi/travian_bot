@@ -9,18 +9,10 @@ class TravianBot
       def run!(*arguments)
         login
         building_queue
+        troop_movement
         close
       
         return 1
-      end
-      
-      private
-      
-      # Load the credentials from ENV['HOME']/.travian_bot
-      def get_credentials
-        credentials = YAML::load(File.open("#{ENV['HOME']}/.travian_bot"))
-
-        [credentials['travian_bot']['url'], credentials['travian_bot']['usr'], credentials['travian_bot']['pwd']]
       end
       
       # Login in to travian page      
@@ -55,6 +47,28 @@ class TravianBot
         end
       end
       
+      # Show the troop movement.
+      def troop_movement
+        begin
+          troop_movement = @driver.find_elements(:xpath, "//table[@id='movements']/tbody/tr")
+          
+          troop_movement.each do |movement|
+            puts movement.text
+          end
+        rescue   Selenium::WebDriver::Error::NoSuchElementError
+          puts 'No troop movement'
+        end 
+      end
+      
+      private
+      
+      # Load the credentials from ENV['HOME']/.travian_bot
+      def get_credentials
+        credentials = YAML::load(File.open("#{ENV['HOME']}/.travian_bot"))
+
+        [credentials['travian_bot']['url'], credentials['travian_bot']['usr'], credentials['travian_bot']['pwd']]
+      end
+            
       # Get the ending time of a string
       def wait_till(input)
         time = input.to_s.match(/(\d*):(\d*)$/)
