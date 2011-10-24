@@ -16,6 +16,14 @@ class TravianBot
       
       private
       
+      # Load the credentials from ENV['HOME']/.travian_bot
+      def get_credentials
+        credentials = YAML::load(File.open("#{ENV['HOME']}/.travian_bot"))
+
+        [credentials['travian_bot']['url'], credentials['travian_bot']['usr'], credentials['travian_bot']['pwd']]
+      end
+      
+      # Login in to travian page      
       def login
         url, user, password = get_credentials
         @driver = Selenium::WebDriver.for :firefox
@@ -29,29 +37,25 @@ class TravianBot
         login_button.submit
       end
       
+      # Close the selenium connection
       def close
         @driver.quit
       end
       
+      # Check if building something
       def building_queue
-        # Check if building something
-        #begin
+        begin
           building_pipe = @driver.find_elements(:xpath, "//table[@id='building_contract']/tbody/tr")
           
           building_pipe.each do |entry|
             puts entry.text
           end
-        #rescue Selenium::WebDriver::Error::NoSuchElementError
-          #puts 'Nothing to build'
-        #end
+        rescue Selenium::WebDriver::Error::NoSuchElementError
+          puts 'Nothing in building queue'
+        end
       end
       
-      def get_credentials
-        credentials = YAML::load(File.open("#{ENV['HOME']}/.travian_bot"))
-
-        [credentials['travian_bot']['url'], credentials['travian_bot']['usr'], credentials['travian_bot']['pwd']]
-      end
-
+      # Get the ending time of a string
       def wait_till(input)
         time = input.to_s.match(/(\d*):(\d*)$/)
 
