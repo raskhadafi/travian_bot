@@ -25,6 +25,7 @@ class TravianBot
       end
       
       def current_avaible_buildings
+        @game ||= login
         h2 'Avaible buildings'
         buildings = avaible_buildings(@game)
         
@@ -35,6 +36,7 @@ class TravianBot
       end
        
       def current_building_queue
+        @game ||= login
         h2('Current building queue')
         buildings = building_queue(@game)
         
@@ -49,6 +51,7 @@ class TravianBot
       end
       
       def current_troop_movements
+        @game ||= login
         h2('Current troop movement')
         troops = troop_movement(@game)
         
