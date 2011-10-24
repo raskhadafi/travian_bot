@@ -1,9 +1,9 @@
-require 'travian_bot/application/navigate'
+require 'travian_bot/application/navigation'
 
 class TravianBot
   class Application 
     module Buildings
-      include TravianBot::Application::Navigate
+      include TravianBot::Application::Navigation
             
       def avaible_buildings(selenium)
         begin
