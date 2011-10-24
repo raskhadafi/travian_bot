@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "travian_bot"
-  s.version = "0.1.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roman Simecek"]
@@ -28,6 +28,11 @@ Gem::Specification.new do |s|
     "bin/travianbot",
     "lib/travian_bot.rb",
     "lib/travian_bot/application.rb",
+    "lib/travian_bot/application/buildings.rb",
+    "lib/travian_bot/application/connection.rb",
+    "lib/travian_bot/application/display.rb",
+    "lib/travian_bot/application/navigate.rb",
+    "lib/travian_bot/application/queue.rb",
     "test/helper.rb",
     "test/test_travian_bot.rb",
     "travian_bot.gemspec"
