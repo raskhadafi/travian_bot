@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
-Dir.glob(File.join(File.dirname(__FILE__), '/application/*.rb')).sort.each { |lib| load lib }
 
+Dir.glob(File.join(File.dirname(__FILE__), '/application/*.rb')).sort.each { |lib| load lib }
 
 class TravianBot
   class Application
@@ -9,16 +9,20 @@ class TravianBot
       include Queue
       include Display
       include Buildings
+      include Hero
       
       # Is executed by the travinbot shell script.      
       def run!(*arguments)
         h1('Welcome to your TravianBot')
         @game = login
         
+        h2('Your avaible actions')
+        #command = gets
+        #self.send(command)
         current_building_queue
         current_troop_movements
         current_avaible_buildings
-        
+        start_closest_adventure @game
         @game.quit
       
         return 1

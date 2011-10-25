@@ -5,9 +5,9 @@ class TravianBot
     module Connection
       # Login in to travian page      
       def login
-        url, user, password = get_credentials
+        @url, user, password = get_credentials
         driver = Selenium::WebDriver.for :firefox
-        driver.navigate.to(url)
+        driver.navigate.to(@url)
         # Get the form fields.
         name_input = driver.find_element(:name, 'name')
         password_input = driver.find_element(:name, 'password')

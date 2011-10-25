@@ -21,9 +21,12 @@ class TravianBot
         to_page(selenium, 'reports')
       end
       
+      def to_hero_quest_page(selenium)
+        selenium.navigate.to @url + "hero_adventure.php"
+      end
+      
       private
       def to_page(selenium, target)
-        wait = Selenium::WebDriver::Wait.new
         link = selenium.find_element(:xpath, "//ul[@id='navigation']/li[@class='#{target}']/a")
         link.click
       end
