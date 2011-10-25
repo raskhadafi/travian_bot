@@ -20,6 +20,7 @@ GEM
       ffi (= 1.0.9)
       json_pure
       rubyzip
+    term-ansicolor (1.0.7)
 
 PLATFORMS
   ruby
@@ -29,3 +30,4 @@ DEPENDENCIES
   chronic_duration
   jeweler (~> 1.6.4)
   selenium-webdriver
+  term-ansicolor

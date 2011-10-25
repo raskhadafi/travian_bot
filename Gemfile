@@ -7,3 +7,4 @@ end
 
 gem 'selenium-webdriver'
 gem 'chronic_duration'
+gem 'term-ansicolor'

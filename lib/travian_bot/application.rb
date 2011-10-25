@@ -16,13 +16,14 @@ class TravianBot
         h1('Welcome to your TravianBot')
         @game = login
         
-        h2('Your avaible actions')
-        #command = gets
-        #self.send(command)
         current_building_queue
         current_troop_movements
         current_avaible_buildings
-        start_closest_adventure @game
+        
+        h2('Custom actions actions')
+        text 'closest_adventure'
+        command = gets
+        start_closest_adventure @game if command == 'closest_adventure'
         @game.quit
       
         return 1
@@ -34,7 +35,7 @@ class TravianBot
         buildings = avaible_buildings(@game)
         
         buildings.each do |building|
-          puts building.to_s
+          text building.to_s
         end  
         new_line
       end
@@ -45,13 +46,13 @@ class TravianBot
         buildings = building_queue(@game)
         
         if buildings.empty?
-          text 'nothing building'
+          warning 'nothing building'
         else
           buildings.each do |building|
-            puts building.to_s
+            text building.to_s
           end
-          new_line
-        end
+        end  
+        new_line
       end
       
       def current_troop_movements
@@ -60,13 +61,13 @@ class TravianBot
         troops = troop_movement(@game)
         
         if troops.empty?
-          text 'No troops movement'
+          warning 'No troops movement'
         else
           troops.each do |troop|
-            puts troop.to_s
+            text troop.to_s
           end
-          new_line
         end
+        new_line
       end
     end
   end

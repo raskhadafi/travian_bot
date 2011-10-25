@@ -1,23 +1,32 @@
+require 'term/ansicolor'
+
+class String
+  include Term::ANSIColor
+end
+
 class TravianBot
   class Application
     module Display
       def h1(text)
         puts ' '
-        puts "#{text}"
-        puts "=" * text.length
+        puts "#{text}".red
+        puts "=".red * text.length
         puts ' '
         puts ' '
       end
       
       def h2(text)
-        puts "#{text}"
-        puts "-" * text.length
+        puts "#{text}".yellow
+        puts "-".yellow * text.length
         puts ' '
       end
       
       def text(text)
-        puts text
-        puts ' '
+        puts text.to_s.green
+      end
+      
+      def warning(text)
+        puts text.to_s.red
       end
       
       def new_line
