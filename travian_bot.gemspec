@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "travian_bot"
-  s.version = "0.2.2"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roman Simecek"]
-  s.date = "2011-10-24"
+  s.date = "2011-10-25"
   s.description = "A little bot for travian."
   s.email = "roman.simecek@cyt.ch"
   s.executables = ["travianbot"]
@@ -31,8 +31,10 @@ Gem::Specification.new do |s|
     "lib/travian_bot/application/buildings.rb",
     "lib/travian_bot/application/connection.rb",
     "lib/travian_bot/application/display.rb",
+    "lib/travian_bot/application/hero.rb",
     "lib/travian_bot/application/navigation.rb",
     "lib/travian_bot/application/queue.rb",
+    "lib/travian_bot/application/time.rb",
     "test/helper.rb",
     "test/test_travian_bot.rb",
     "travian_bot.gemspec"
@@ -48,15 +50,18 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<selenium-webdriver>, [">= 0"])
+      s.add_runtime_dependency(%q<chronic_duration>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
     else
       s.add_dependency(%q<selenium-webdriver>, [">= 0"])
+      s.add_dependency(%q<chronic_duration>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     end
   else
     s.add_dependency(%q<selenium-webdriver>, [">= 0"])
+    s.add_dependency(%q<chronic_duration>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
   end
