@@ -38,6 +38,7 @@ class TravianBot
           text building.to_s
         end  
         new_line
+        sleep(3)
       end
        
       def current_building_queue
@@ -53,6 +54,7 @@ class TravianBot
           end
         end  
         new_line
+        sleep(3)
       end
       
       def current_troop_movements
@@ -68,6 +70,7 @@ class TravianBot
           end
         end
         new_line
+        sleep(3)
       end
     end
   end
