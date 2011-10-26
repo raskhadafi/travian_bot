@@ -12,13 +12,11 @@ class TravianBot
         puts "#{text}".red
         puts "=".red * text.length
         puts ' '
-        puts ' '
       end
       
       def h2(text)
         puts "#{text}".yellow
         puts "-".yellow * text.length
-        puts ' '
       end
       
       def text(text)
