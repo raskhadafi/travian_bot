@@ -18,11 +18,21 @@ class TravianBot
         shortest_quest = quests.sort{|a,b| a[1] <=> b[1]}.first.first
         elements[shortest_quest].find_element(:class, 'gotoAdventure').click
         
-        link = selenium.find_element(:link_text, 'Abenteuer starten')
-        link.click
+        begin
+          link = selenium.find_element(:link_text, 'Abenteuer starten')
+          link.click
+        rescue
+          return ['Currently the hero is busy for a quest.', [0, 0]]
+        end
+        
+        mission_name = selenium.find_element(:xpath, '//span[@class="coordinates coordinatesWithText"]/span[@class="coordText"]')
+        coordinate_x = selenium.find_element(:xpath, 'span[@class="coordinates coordinatesWithText"]/span[@class="coordinateX"]')
+        coordinate_y = selenium.find_element(:xpath, 'span[@class="coordinates coordinatesWithText"]/span[@class="coordinateY"]')
         
         confirm_link = selenium.find_element(:id, 'btn_ok')
         confirm_link.click
+        
+        [mission_name, [coordinate_x.sub('(', ''), coordinate_y.sub(')', '')]]
       end
     end
   end

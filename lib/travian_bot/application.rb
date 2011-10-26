@@ -16,14 +16,19 @@ class TravianBot
         h1('Welcome to your TravianBot')
         @game = login
         
-        current_building_queue
-        current_troop_movements
-        current_avaible_buildings
+        #current_building_queue
+        #current_troop_movements
+        #current_avaible_buildings
         
         h2('Custom actions actions')
-        text 'closest_adventure'
-        command = gets
-        start_closest_adventure @game if command == 'closest_adventure'
+        text '1 => closest_adventure'
+        new_line
+        
+        command = gets.chomp
+        if '1'.eql?(command)
+          h2 'Start the closest adventure'
+          puts start_closest_adventure(@game) 
+        end
         @game.quit
       
         return 1
