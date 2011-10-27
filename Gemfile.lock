@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    bombshell (0.1.5)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     chronic_duration (0.9.6)
@@ -26,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bombshell
   bundler
   chronic_duration
   jeweler (~> 1.6.4)
