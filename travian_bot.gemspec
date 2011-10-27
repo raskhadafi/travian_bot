@@ -5,14 +5,14 @@
 
 Gem::Specification.new do |s|
   s.name = "travian_bot"
-  s.version = "0.2.4"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roman Simecek"]
-  s.date = "2011-10-25"
+  s.date = "2011-10-27"
   s.description = "A little bot for travian."
   s.email = "roman.simecek@cyt.ch"
-  s.executables = ["travianbot"]
+  s.executables = ["travianbot", "travianshell"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/travianbot",
+    "bin/travianshell",
     "lib/travian_bot.rb",
     "lib/travian_bot/application.rb",
     "lib/travian_bot/application/buildings.rb",
@@ -35,6 +36,7 @@ Gem::Specification.new do |s|
     "lib/travian_bot/application/navigation.rb",
     "lib/travian_bot/application/queue.rb",
     "lib/travian_bot/application/time.rb",
+    "lib/travian_bot/shell.rb",
     "test/helper.rb",
     "test/test_travian_bot.rb",
     "travian_bot.gemspec"
@@ -52,12 +54,14 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<selenium-webdriver>, [">= 0"])
       s.add_runtime_dependency(%q<chronic_duration>, [">= 0"])
       s.add_runtime_dependency(%q<term-ansicolor>, [">= 0"])
+      s.add_runtime_dependency(%q<bombshell>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
     else
       s.add_dependency(%q<selenium-webdriver>, [">= 0"])
       s.add_dependency(%q<chronic_duration>, [">= 0"])
       s.add_dependency(%q<term-ansicolor>, [">= 0"])
+      s.add_dependency(%q<bombshell>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     end
@@ -65,6 +69,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<selenium-webdriver>, [">= 0"])
     s.add_dependency(%q<chronic_duration>, [">= 0"])
     s.add_dependency(%q<term-ansicolor>, [">= 0"])
+    s.add_dependency(%q<bombshell>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
   end
